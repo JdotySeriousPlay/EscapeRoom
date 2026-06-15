@@ -544,9 +544,7 @@
       if (currentScreen === 'standby') {
         showScreen('dispatch');
         const audio = document.getElementById('call-audio');
-        if (audio.src && audio.src !== window.location.href) {
-          audio.play().catch(() => {});
-        }
+        audio.play().catch(err => console.log('Audio play failed:', err));
         runDispatchSequence();
       } else if (currentScreen === 'dispatch') {
         showScreen('mission');
